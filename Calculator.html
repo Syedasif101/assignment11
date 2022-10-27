@@ -1,0 +1,215 @@
+.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+        }
+
+        button {
+            width: 60px;
+            height: 60px;
+            border: 2px;
+            margin: 2px;
+            font-size: 30px;
+            font-weight: 250;
+        }
+
+        .lightButton {
+            background-color: #ffffffb0;
+            color: black;
+        }
+
+        .orangebutton {
+            background-color: #e09122;
+
+
+        }
+
+        .orange {
+            background-color: #e09122;
+        }
+
+        .input {
+            border: none;
+            width: 250px;
+            font-size: 50px;
+            text-align: right;
+            background-color: black;
+            color: rgb(255, 255, 255);
+            font-weight: 200;
+            
+        }
+
+        ::-webkit-input-placeholder {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table border="1px">
+        <tr>
+            <td colspan="4">
+                <form>
+                    <input class="input" id="input" value=" " placeholder="0">
+                </form>
+
+            </td>
+        <tr>
+            <td>
+                <button class="lightButton" onclick="addition('+')">+</button>
+            </td>
+            <td>
+
+                <button class="lightButton" onclick="subtract('-')">-</button>
+
+            </td>
+            <td>
+
+                <button class="lightButton" onclick="multiply('x')">x</button>
+
+
+            </td>
+            <td>
+
+                <button class="lightButton" onclick="divide('/')">/</button>
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="lightButton" onclick="add(7)">7</button>
+            </td>
+            <td>
+                <button class="lightButton" onclick="add(8)">8</button>
+            </td>
+            <td>
+                <button class="lightButton" onclick="add(9)">9</button>
+            </td>
+
+            <td rowspan="5" class="orange">
+                <button class="orangebutton" onclick="equalto()">=</button>
+            </td>
+
+
+
+
+        </tr>
+        <tr>
+            <td>
+                <button class="lightButton" onclick="add(4)">4</button>
+            </td>
+            <td>
+                <button class="lightButton" onclick="add(5)">5</button>
+            </td>
+            <td>
+                <button class="lightButton" onclick="add(6)">6</button>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <button class="lightButton" onclick="add(1)">1</button>
+            </td>
+            <td>
+                <button class="lightButton" onclick="add(2)">2</button>
+            </td>
+            <td>
+                <button class="lightButton" onclick="add(3)">3</button>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <button class="lightButton" onclick="add(0)">0</button>
+            </td>
+            <td>
+                <button class="lightButton" onclick="add('.')">.</button>
+            </td>
+            <td>
+                <button class="lightButton" onclick="cleanInput()">AC</button>
+            </td>
+
+        </tr>
+
+
+        </tr>
+    </table>
+
+    <script>
+        let tougle = 0;
+        let val1 = 0;
+        let val2 = 0;
+        let opr = " ";
+
+        function add(v) {
+
+            document.getElementById("input").value += v;
+
+            if (tougle == 0) {
+                val1 = parseInt(v);
+                tougle = tougle + 1;
+            }
+            else {
+                val2 = parseInt(v);
+            }
+            // console.log(val1 + " " + " " + val2)
+        }
+
+
+
+        function addition(v) {
+            document.getElementById("input").value += v;
+            opr = v;
+        }
+        function subtract(v) {
+            document.getElementById("input").value += v;
+            opr = v;
+        }
+        function divide(v) {
+            document.getElementById("input").value += v;
+            opr = v;
+        }
+        function multiply(v) {
+            document.getElementById("input").value += v;
+            opr = v;
+        }
+
+        function equalto() {
+
+            if (opr == 'x') {
+                document.getElementById("input").value = (val1 * val2);
+            }
+            if (opr == '+') {
+                document.getElementById("input").value = (val1 + val2);
+            }
+            if (opr == '-') {
+                document.getElementById("input").value = (val1 - val2);
+            }
+            if (opr == '/') {
+                document.getElementById("input").value = (val1 / val2);
+            }
+
+        }
+
+        function cleanInput() {
+            document.getElementById("input").value = "";
+            tougle = 0;
+            val1 = 0;
+            val2 = 0;
+            opr = " ";
+        }
+    </script>
+</body>
+
+</html>
